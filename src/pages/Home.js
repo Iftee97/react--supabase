@@ -7,7 +7,7 @@ const Home = () => {
   const [smoothies, setSmoothies] = useState([])
 
   const handleDelete = (id) => {
-    setSmoothies(smoothies.filter((smoothie) => smoothie.id !== id))
+    setSmoothies(smoothies.filter((smoothie) => smoothie.id !== id)) // filtering out the deleted smoothie from local state
   }
 
   useEffect(() => {
