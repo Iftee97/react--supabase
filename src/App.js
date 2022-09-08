@@ -5,8 +5,7 @@ import Home from "./pages/Home"
 import Create from "./pages/Create"
 import Update from "./pages/Update"
 
-
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <nav>
@@ -20,7 +19,7 @@ function App() {
         <Route path="/:id" element={<Update />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
