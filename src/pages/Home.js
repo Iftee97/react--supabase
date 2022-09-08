@@ -10,7 +10,7 @@ const Home = () => {
     const fetchSmoothies = async () => {
       const { data, error } = await supabase
         .from("smoothies")
-        .select() // fetching all data from 'smoothies' the table 
+        .select() // fetching all rows (data) from 'smoothies' the table 
 
       if (error) {
         setFetchError('could not fetch smoothies')
