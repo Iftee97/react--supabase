@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom"
 import supabase from "../config/supabaseClient"
 
 const Create = () => {
+  const navigate = useNavigate()
+
   const [title, setTitle] = useState("")
   const [method, setMethod] = useState("")
   const [rating, setRating] = useState("")
   const [formError, setFormError] = useState(null)
-
-  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
