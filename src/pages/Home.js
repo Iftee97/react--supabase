@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react"
-
-// components
 import SmoothieCard from "../components/SmoothieCard"
-
 import supabase from "../config/supabaseClient"
 
 const Home = () => {
-  // console.log(supabase)
-
   const [fetchError, setFetchError] = useState(null)
   const [smoothies, setSmoothies] = useState([])
 
@@ -15,7 +10,7 @@ const Home = () => {
     const fetchSmoothies = async () => {
       const { data, error } = await supabase
         .from("smoothies")
-        .select()
+        .select() // fetching all data from 'smoothies' the table 
 
       if (error) {
         setFetchError('could not fetch smoothies')
