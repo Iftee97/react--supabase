@@ -24,6 +24,12 @@ nav {
   text-align: center;
 }
 
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 nav a {
   color: #f2f2f2;
   margin: 10px;
@@ -43,6 +49,13 @@ nav ul {
 
 nav ul li {
   list-style: none;
+}
+
+.ifUser li {
+  color: #f2f2f2;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .page {

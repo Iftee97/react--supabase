@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import supabase from '../config/supabaseClient'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const { dispatch } = useAuthContext()
 
-  const handleSubmit = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
 
     setLoading(true)
     let { user, error } = await supabase.auth.signUp({ email, password })
     if (user) {
-      console.log('signed up user:', user)
+      dispatch({ type: "LOGIN", payload: user }) // dispatch LOGIN action
     }
     if (error) {
       console.log('error:', error)
@@ -28,7 +30,7 @@ const Signup = () => {
   return (
     <form
       style={{ marginTop: '2rem' }}
-      onSubmit={handleSubmit}
+      onSubmit={handleSignup}
     >
       <h2>sign up</h2>
 
