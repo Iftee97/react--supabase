@@ -9,7 +9,6 @@ const Navbar = () => {
   const handleLogout = async () => {
     await supabase.auth.signOut()
     dispatch({ type: "LOGOUT" }) // dispatch LOGOUT action
-    console.log("logged out")
   }
 
   return (
