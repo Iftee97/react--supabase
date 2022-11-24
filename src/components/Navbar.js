@@ -20,9 +20,9 @@ const Navbar = () => {
             <Link to="/">Supa Smoothies</Link>
           </h1>
         </li>
-        <li>
+        {user && <li>
           <Link to="/create">Create New Smoothie</Link>
-        </li>
+        </li>}
       </ul>
       {!user && (
         <ul>
