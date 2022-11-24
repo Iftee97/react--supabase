@@ -94,6 +94,10 @@ form {
   border-radius: 6px;
 }
 
+form h2 {
+  margin-bottom: 1rem;
+}
+
 form input,
 form textarea {
   display: block;

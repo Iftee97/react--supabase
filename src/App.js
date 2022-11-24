@@ -1,25 +1,22 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-// pages
+// pages & components
+import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Create from "./pages/Create"
 import Update from "./pages/Update"
+import Login from "./pages/Login"
 
-const App = () => {
+export default function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <h1>Supa Smoothies</h1>
-        <Link to="/">Home</Link>
-        <Link to="/create">Create New Smoothie</Link>
-      </nav>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
         <Route path="/:id" element={<Update />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )
 }
-
-export default App
