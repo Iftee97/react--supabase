@@ -36,12 +36,10 @@ const Home = () => {
       {fetchError && <p>{fetchError}</p>}
       {smoothies && (
         <div className="smoothies">
-          {/* order by buttons -- we'll do this later */}
           <div className="order-by">
             <p>Order by:</p>
             <button onClick={() => setOrderBy('created_at')}>Time Created</button>
             <button onClick={() => setOrderBy('rating')}>Rating</button>
-            {/* {orderBy} */}
           </div>
           <div className="smoothie-grid">
             {smoothies.map((smoothie) => (

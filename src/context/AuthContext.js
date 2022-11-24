@@ -31,14 +31,13 @@ export const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
-    authIsReady: false
+    authIsReady: false,
+    session: null
   })
 
-  // the following code handles weird behaviors on refresh
   useEffect(() => {
-    supabase.auth.onAuthStateChange((event, session) => {
-      dispatch({ type: 'AUTH_IS_READY', payload: session.user })
-    })
+    const session = supabase.auth.session()
+    dispatch({ type: 'AUTH_IS_READY', payload: session?.user ?? null })
   }, [])
 
   console.log('AuthContext state:', state)

@@ -14,35 +14,34 @@ const Navbar = () => {
 
   return (
     <nav>
-      <h1>Supa Smoothies</h1>
-      <div>
+      <ul>
+        <li>
+          <h1 className='title'>
+            <Link to="/">Supa Smoothies</Link>
+          </h1>
+        </li>
+        <li>
+          <Link to="/create">Create New Smoothie</Link>
+        </li>
+      </ul>
+      {!user && (
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to='/login'>Login</Link>
           </li>
           <li>
-            <Link to="/create">Create New Smoothie</Link>
+            <Link to='/signup'>Sign up</Link>
           </li>
         </ul>
-        {!user && (
-          <ul>
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-            <li>
-              <Link to='/signup'>Sign up</Link>
-            </li>
-          </ul>
-        )}
-        {user && (
-          <ul className='ifUser'>
-            <li>
-              user: <strong>{user.email}</strong>
-            </li>
-            <li onClick={handleLogout}>logout</li>
-          </ul>
-        )}
-      </div>
+      )}
+      {user && (
+        <ul className='ifUser'>
+          <li>
+            user: <strong>{user.email}</strong>
+          </li>
+          <li onClick={handleLogout}>logout</li>
+        </ul>
+      )}
     </nav >
   )
 }
