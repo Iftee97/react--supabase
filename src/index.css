@@ -34,6 +34,17 @@ nav h1 {
   color: #fff;
 }
 
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+}
+
 .page {
   max-width: 1200px;
   margin: 20px auto;

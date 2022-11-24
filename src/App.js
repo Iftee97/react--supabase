@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Create from "./pages/Create"
 import Update from "./pages/Update"
 import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/create" element={<Create />} />
         <Route path="/:id" element={<Update />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   )
