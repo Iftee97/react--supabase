@@ -35,6 +35,7 @@ export const AuthContextProvider = ({ children }) => {
     session: null
   })
 
+  // THIS METHOD OF SETTING USER IS ONLY APPLICABLE FOR SUPABASE V1
   useEffect(() => {
     const session = supabase.auth.session()
     dispatch({ type: 'AUTH_IS_READY', payload: session?.user ?? null })
