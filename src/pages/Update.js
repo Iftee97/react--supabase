@@ -11,6 +11,28 @@ const Update = () => {
   const [rating, setRating] = useState("")
   const [formError, setFormError] = useState(null)
 
+  useEffect(() => {
+    const fetchSmoothie = async () => {
+      const { data, error } = await supabase
+        .from("smoothies")
+        .select()
+        .eq("id", id)
+        .single() // fetching a single row from the 'smoothies' table
+
+      if (error) {
+        console.log(error)
+        navigate('/', { replace: true }) // redirect to home page if error
+      }
+      if (data) {
+        console.log(data)
+        setTitle(data.title)
+        setMethod(data.method)
+        setRating(data.rating)
+      }
+    }
+    fetchSmoothie()
+  }, [id, navigate])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -34,28 +56,6 @@ const Update = () => {
       navigate('/') // redirect to home page
     }
   }
-
-  useEffect(() => {
-    const fetchSmoothie = async () => {
-      const { data, error } = await supabase
-        .from("smoothies")
-        .select()
-        .eq("id", id)
-        .single() // fetching a single row from the 'smoothies' table
-
-      if (error) {
-        console.log(error)
-        navigate('/', { replace: true }) // redirect to home page if error
-      }
-      if (data) {
-        console.log(data)
-        setTitle(data.title)
-        setMethod(data.method)
-        setRating(data.rating)
-      }
-    }
-    fetchSmoothie()
-  }, [id, navigate])
 
   return (
     <div className="page update">
