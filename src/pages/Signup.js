@@ -40,6 +40,7 @@ const Signup = () => {
         id='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        disabled={loading}
       />
 
       <label htmlFor="email">password:</label>
@@ -48,10 +49,12 @@ const Signup = () => {
         id='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        disabled={loading}
       />
 
-      {!loading && <button type='submit'>sign up</button>}
-      {loading && <button disabled>loading...</button>}
+      <button type='submit' disabled={loading}>
+        {loading ? 'loading...' : 'sign up'}
+      </button>
       {error && <p>{error}</p>}
     </form>
   )
